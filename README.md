@@ -9,11 +9,11 @@ Dataset we made (not involved in the final submission): [hi/ta parsed wiki] (htt
 ## The training pipeline:
 - `pip install -r requirements.txt`
 - Finetune RemBERT, InfoXLM, Muril, XLM-R on SQuAD 2.0 with `finetune.py`.
-An example of finetuning Muril, same for the others.
+An example of finetuning Muril, substitute `model_checkpoint` for the others:
 ```
-python finetune.py
+python finetune.py -u \
 --model_checkpoint google/muril-large-cased \
---train_path /gpfsnyu/scratch/yw3642/chaii/input/squad2/train-v2.0.json \
+--train_path <path to data>/train-v2.0.json \
 --max_length 512 \
 --doc_stride 128 \
 --epochs 3 \
@@ -25,4 +25,42 @@ python finetune.py
 --seed 42 \
 --dropout 0.1
 ```
-- Train 5 folds on the chaii dataset with `train-cv.py`. OR Train with all data with `train-all.py`.
+- Train 5 folds on the chaii + XQuAD + MLQA dataset with `train-cv.py` OR Train with all data with `train-all.py`. Download the data [here] (https://www.kaggle.com/zacchaeus/chaiitrain0917).
+An example of training 5 folds Muril, substitute `model_checkpoint` for the others:
+```
+python -u train-native-stepeval.py \
+--model_checkpoint google/muril-large-cased \
+--train_path <path to data>/merged0917.csv \
+--max_length 512 \
+--doc_stride 128 \
+--epochs 3 \
+--batch_size 4 \
+--accumulation_steps 1 \
+--lr 1e-5 \
+--optimizer adamw \
+--weight_decay 0.0 \
+--scheduler cosann \
+--warmup_ratio 0.1 \
+--dropout 0.1 \
+--eval_steps 1000 \
+--metric nonzero_jaccard_per \
+--downext \
+--seed 42
+```
+An example of training Muril with all data, substitute `model_checkpoint` for the others:
+```
+python -u train-useall.py \
+--model_checkpoint google/muril-large-cased \
+--train_path <path to data>/merged0917.csv \
+--max_length 512 \
+--doc_stride 128 \
+--epochs 3 \
+--batch_size 4 \
+--accumulation_steps 1 \
+--lr 1e-5 \
+--weight_decay 0.0 \
+--warmup_ratio 0.1 \
+--seed 42 \
+--dropout 0.1 \
+--downsample 0.5
+```

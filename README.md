@@ -5,7 +5,7 @@ Our solution write-up: https://www.kaggle.com/c/chaii-hindi-and-tamil-question-a
 
 Inference kernel: https://www.kaggle.com/zacchaeus/chaii-infer-blend-postpro-4models.
 
-Dataset we made (not involved in the final submission): [hi/ta parsed wiki] (https://www.kaggle.com/zacchaeus/chaii-tfds-wiki), [SQuAD 2.0 in Tamil] (https://www.kaggle.com/zacchaeus/chaii-tfds-wiki), [cleaned chaii dataset] (https://www.kaggle.com/zacchaeus/chaiitrain0917)
+Dataset we made (not involved in the final submission): [hi/ta parsed wiki](https://www.kaggle.com/zacchaeus/chaii-tfds-wiki), [SQuAD 2.0 in Tamil](https://www.kaggle.com/zacchaeus/chaii-tfds-wiki), [cleaned chaii dataset](https://www.kaggle.com/zacchaeus/chaiitrain0917)
 ## The training pipeline:
 - `pip install -r requirements.txt`
 - Finetune RemBERT, InfoXLM, Muril, XLM-R on SQuAD 2.0 with `finetune.py`.
@@ -25,7 +25,7 @@ python finetune.py -u \
 --seed 42 \
 --dropout 0.1
 ```
-- Train 5 folds on the chaii + XQuAD + MLQA dataset with `train-cv.py` OR Train with all data with `train-all.py`. Download the data [here] (https://www.kaggle.com/zacchaeus/chaiitrain0917).
+- Train 5 folds on the chaii + XQuAD + MLQA dataset with `train-cv.py` OR Train with all data with `train-all.py`. Download the data [here](https://www.kaggle.com/zacchaeus/chaiitrain0917).
 An example of training 5 folds Muril, substitute `model_checkpoint` for the others:
 ```
 python -u train-native-stepeval.py \

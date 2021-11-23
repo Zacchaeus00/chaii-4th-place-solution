@@ -5,9 +5,10 @@ This is the implementation of the 4th place solution of the [chaii - Hindi and T
 
 Our solution write-up: https://www.kaggle.com/c/chaii-hindi-and-tamil-question-answering/discussion/287911.
 
-Dataset we made (not involved in the final submission): [hi/ta parsed wiki](https://www.kaggle.com/zacchaeus/chaii-tfds-wiki), [SQuAD 2.0 in Tamil](https://www.kaggle.com/zacchaeus/chaii-tfds-wiki), [cleaned chaii dataset](https://www.kaggle.com/zacchaeus/chaiitrain0917)
+Dataset we made (not involved in the final submission): [hi/ta parsed wiki](https://www.kaggle.com/zacchaeus/chaii-tfds-wiki), [SQuAD 2.0 in Tamil](https://www.kaggle.com/zacchaeus/chaii-tfds-wiki), [cleaned chaii dataset](https://www.kaggle.com/zacchaeus/chaiitrain0917).
+
 ## To reproduce our result:
-1. Install dependencies with `pip install -r requirements.txt`. You will need a single RTX3090 or A10.
+1. The environment is the same as a [Kaggle Docker](https://github.com/Kaggle/docker-python). Install dependencies with `pip install -r requirements.txt`. You will need a single RTX3090 or A10.
 2. To leverage zero-shot transferability, finetune RemBERT, InfoXLM, Muril, XLM-R on SQuAD 2.0 with `finetune.py`.
 An example of finetuning Muril:
       ```

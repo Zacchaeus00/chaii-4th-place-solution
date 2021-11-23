@@ -30,7 +30,7 @@ An example of finetuning Muril:
 
 3. As decribed in [our solution write-up](https://www.kaggle.com/c/chaii-hindi-and-tamil-question-answering/discussion/287911), we trained models with corss-validation or with all data. You can train 5-fold models on the chaii + XQuAD + MLQA dataset with `train-cv.py` OR train with all data with `train-all.py`. Please first download our cleaned data [here](https://www.kaggle.com/zacchaeus/chaiitrain0917).
     * An example of training 5 folds Muril, substitute `model_checkpoint` for the others:
-            ```
+            
             python -u train-native-stepeval.py \
             --model_checkpoint google/muril-large-cased \
             --train_path <path to data>/merged0917.csv \
@@ -49,9 +49,9 @@ An example of finetuning Muril:
             --metric nonzero_jaccard_per \
             --downext \
             --seed 42
-            ```
+            
     * An example of training Muril with all data, substitute `model_checkpoint` for the others:
-            ```
+            
             python -u train-useall.py \
             --model_checkpoint google/muril-large-cased \
             --train_path <path to data>/merged0917.csv \
@@ -66,6 +66,6 @@ An example of finetuning Muril:
             --seed 42 \
             --dropout 0.1 \
             --downsample 0.5
-            ```
+            
     * Although we didn't find the translated SQuAD dataset useful, you may try to train on it with `train-enta.py` on [SQuAD 2.0 in Tamil](https://www.kaggle.com/zacchaeus/chaii-tfds-wiki).
 4. Infer with ensembling and post-processing: https://www.kaggle.com/zacchaeus/chaii-infer-blend-postpro-4models.

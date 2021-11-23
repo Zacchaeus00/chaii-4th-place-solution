@@ -26,8 +26,9 @@ python finetune.py -u \
 --dropout 0.1
 ```
 Substitute `model_checkpoint` with corresponding Huggingface pre-trained checkpoint for other models. Set epochs = 3 for RemBERT, InfoXLM, XLM-R, leaving other hyper-parameters the same.
+
 3. As decribed in [our solution write-up](https://www.kaggle.com/c/chaii-hindi-and-tamil-question-answering/discussion/287911), we trained models with corss-validation or with all data. You can train 5-fold models on the chaii + XQuAD + MLQA dataset with `train-cv.py` OR train with all data with `train-all.py`. Please first download our cleaned data [here](https://www.kaggle.com/zacchaeus/chaiitrain0917).
-An example of training 5 folds Muril, substitute `model_checkpoint` for the others:
+    * An example of training 5 folds Muril, substitute `model_checkpoint` for the others:
 ```
 python -u train-native-stepeval.py \
 --model_checkpoint google/muril-large-cased \
@@ -48,7 +49,7 @@ python -u train-native-stepeval.py \
 --downext \
 --seed 42
 ```
-An example of training Muril with all data, substitute `model_checkpoint` for the others:
+    * An example of training Muril with all data, substitute `model_checkpoint` for the others:
 ```
 python -u train-useall.py \
 --model_checkpoint google/muril-large-cased \

@@ -69,4 +69,5 @@ An example of finetuning Muril:
       --dropout 0.1 \
       --downsample 0.5
       ```
+      * Although we didn't find the translated SQuAD dataset useful, you may try to train on it with `train-enta.py` on [SQuAD 2.0 in Tamil](https://www.kaggle.com/zacchaeus/chaii-tfds-wiki).
 4. Infer with ensembling and post-processing: https://www.kaggle.com/zacchaeus/chaii-infer-blend-postpro-4models.

@@ -68,3 +68,4 @@ An example of finetuning Muril:
       --dropout 0.1 \
       --downsample 0.5
       ```
+4. Infer with ensembling and post-processing: https://www.kaggle.com/zacchaeus/chaii-infer-blend-postpro-4models.
